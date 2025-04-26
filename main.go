@@ -12,7 +12,7 @@ func init() {
 }
 
 func main() {
-	r :=  gin.Default()
+	r := gin.Default()
 	routes.PostRoutes(r)
 	r.Run()
 }

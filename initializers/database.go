@@ -7,9 +7,8 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
-  
+ 
 var DB *gorm.DB 
-
 
 func ConnectToDB() {
 	var err error
