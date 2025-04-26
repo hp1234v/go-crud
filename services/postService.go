@@ -5,24 +5,86 @@ import (
 	"github.com/hp1234v/go-crud/repository"
 )
 
-func CreatePostService(title string, body string) (models.Post, error) {
-	post, err := repository.CreatePostRepoService(title, body)
-	return post, err
+// Define a custom type for CreatePostService result
+type CreatePostResult struct {
+	Post models.Post
+	Err  error
 }
 
-func GetAllPostsService() ([]models.Post, error) {
-	return repository.GetAllPostsRepoService()
+func CreatePostService(title string, body string) <-chan CreatePostResult {
+	resultChan := make(chan CreatePostResult)
+
+	go func() {
+		post, err := repository.CreatePostRepoService(title, body)
+		resultChan <- CreatePostResult{Post: post, Err: err}
+	}()
+
+	return resultChan
 }
 
-func GetPostService(id string) (models.Post, error) {
-	return repository.GetPostRepoService(id)
+// Define a custom type for GetAllPostsService result
+type GetAllPostsResult struct {
+	Posts []models.Post
+	Err   error
 }
 
-func UpdatePostService(id string, title string, body string) (models.Post, error) {
-	post, err := repository.UpdatePostRepoService(id, title, body)
-	return post, err
+func GetAllPostsService() <-chan GetAllPostsResult {
+	resultChan := make(chan GetAllPostsResult)
+
+	go func() {
+		posts, err := repository.GetAllPostsRepoService()
+		resultChan <- GetAllPostsResult{Posts: posts, Err: err}
+	}()
+
+	return resultChan
 }
 
-func DeletePostService(id string) (error){
-	return repository.DeletePostRepoService(id)
+// Define a custom type for GetPostService result
+type GetPostResult struct {
+	Post models.Post
+	Err  error
+}
+
+func GetPostService(id string) <-chan GetPostResult {
+	resultChan := make(chan GetPostResult)
+
+	go func() {
+		post, err := repository.GetPostRepoService(id)
+		resultChan <- GetPostResult{Post: post, Err: err}
+	}()
+
+	return resultChan
+}
+
+// Define a custom type for UpdatePostService result
+type UpdatePostResult struct {
+	Post models.Post
+	Err  error
+}
+
+func UpdatePostService(id string, title string, body string) <-chan UpdatePostResult {
+	resultChan := make(chan UpdatePostResult)
+
+	go func() {
+		post, err := repository.UpdatePostRepoService(id, title, body)
+		resultChan <- UpdatePostResult{Post: post, Err: err}
+	}()
+
+	return resultChan
+}
+
+// Define a custom type for DeletePostService result
+type DeletePostResult struct {
+	Err error
+}
+
+func DeletePostService(id string) <-chan DeletePostResult {
+	resultChan := make(chan DeletePostResult)
+
+	go func() {
+		err := repository.DeletePostRepoService(id)
+		resultChan <- DeletePostResult{Err: err}
+	}()
+
+	return resultChan
 }
