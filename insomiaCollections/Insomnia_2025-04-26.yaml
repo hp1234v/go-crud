@@ -1,0 +1,164 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1745063946940
+  modified: 1745063946940
+collection:
+  - name: Todo app
+    meta:
+      id: fld_194a9633980844d98820971209c7caad
+      created: 1745119497332
+      modified: 1745119497332
+      sortKey: -1745119497332
+    children:
+      - name: User
+        meta:
+          id: fld_f603b55befc144438e6794a143a79d2a
+          created: 1745063978408
+          modified: 1745119512927
+          sortKey: -1745119512881
+      - name: Todo
+        meta:
+          id: fld_900c67e8aa2e49009eba09c553ec2df6
+          created: 1745119531085
+          modified: 1745119534178
+          sortKey: -1745119512981
+  - name: Go Crud
+    meta:
+      id: fld_690eba1dc2bf4e2795c5223d402ec736
+      created: 1745649235960
+      modified: 1745649239914
+      sortKey: -1745119497432
+    children:
+      - url: http://localhost:3000/createPost
+        name: createPost
+        meta:
+          id: req_b71c13f1056b44b388c2900eec6c29cd
+          created: 1745649252237
+          modified: 1745667438501
+          isPrivate: false
+          sortKey: -1745649252237
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"Title": "Test Head",
+            	"Body": "Body"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/getAllPost
+        name: getAllPost
+        meta:
+          id: req_33e7e4d061b642bf8c4ff0c3bf4b28e7
+          created: 1745664712103
+          modified: 1745666061480
+          isPrivate: false
+          sortKey: -1745649252337
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/getPost/1
+        name: getPost
+        meta:
+          id: req_95bb422351fc45b7956cc037fce2e9c3
+          created: 1745666072524
+          modified: 1745666080206
+          isPrivate: false
+          sortKey: -1745649252287
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/updatePost/2
+        name: updatePost
+        meta:
+          id: req_61a5312d61004b19a89156f1f8b4f218
+          created: 1745666581355
+          modified: 1745674950179
+          isPrivate: false
+          sortKey: -1745649252437
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"Title": "Test Head",
+            	"Body": "Body"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/deletePost/1
+        name: deletePost
+        meta:
+          id: req_a52519fe554948f38572bb411e239384
+          created: 1745667264943
+          modified: 1745667428532
+          isPrivate: false
+          sortKey: -1745649252137
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1745063963863
+    modified: 1745063963863
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1745063963805
+    modified: 1745063963805
+    isPrivate: false
