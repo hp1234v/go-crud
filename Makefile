@@ -1,5 +1,5 @@
 build:
-	go build -o go-crud main.go
+	go build -o server main.go
 
 run:
 	go run main.go

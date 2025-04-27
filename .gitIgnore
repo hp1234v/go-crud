@@ -1,2 +1,44 @@
+# Binaries
+/server
 *.exe
-main*
+*.out
+*.test
+
+# Build artifacts
+/dist
+/build
+/bin
+
+# Dependency directories (in case you vendor)
+vendor/
+
+# Go workspace files
+*.mod
+*.sum
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# OS / Environment specific
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Test cache
+*.coverprofile
+*.testresult
+
+# Environment files
+.env
+.env.*
+
+# Temporary files
+tmp/
