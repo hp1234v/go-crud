@@ -44,15 +44,15 @@ Install CompileDaemon (for local development)
 
 To install CompileDaemon globally on your system:
 
-go install github.com/githubnemo/CompileDaemon@latest
+```go install github.com/githubnemo/CompileDaemon@latest```
 
 Ensure $GOPATH/bin is in your PATH. To make it permanent, add the following line to your shell profile (~/.bashrc or ~/.zshrc):
 
-export PATH=$PATH:$(go env GOPATH)/bin
+```export PATH=$PATH:$(go env GOPATH)/bin```
 
 Then run:
 
-source ~/.bashrc  # or ~/.zshrc
+```source ~/.bashrc  # or ~/.zshrc```
 
 Docker Setup
 

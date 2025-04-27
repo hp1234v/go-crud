@@ -4,14 +4,27 @@ build:
 run:
 	go run main.go
 
-dev:
-	CompileDaemon --build="go build -o go-crud main.go" --command="./go-crud"
+install-compileDaemon:
+	# Install CompileDaemon
+	go install github.com/githubnemo/CompileDaemon@latest
+
+set-path:
+	# Ensure GOPATH/bin is added to PATH
+	export PATH=$(go env GOPATH)/bin:$PATH
+
+check-daemon:
+	# Check if CompileDaemon is in the path
+	which CompileDaemon || echo "CompileDaemon not installed correctly."
+
+dev: 
+	# Run CompileDaemon
+	CompileDaemon --build="go build -o server main.go" --command="./server"
 
 test:
 	go test ./...
 
 clean:
-	rm -rf myapp
+	rm -rf server
 
 docker-compose:
 	docker compose down -v && docker compose up --build
