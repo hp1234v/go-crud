@@ -4,6 +4,9 @@ build:
 run:
 	go run main.go
 
+dev:
+	CompileDaemon --build="go build -o go-crud main.go" --command="./go-crud"
+
 test:
 	go test ./...
 
