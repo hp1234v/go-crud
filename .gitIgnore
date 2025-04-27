@@ -17,7 +17,6 @@ vendor/
 *.sum
 
 # IDE / Editor settings
-.vscode/
 .idea/
 *.swp
 *.swo

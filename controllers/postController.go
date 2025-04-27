@@ -44,7 +44,13 @@ func UpdatePost(c *gin.Context) {
 	result := <-services.UpdatePostService(idParam, body.Title, body.Body) // 🚀
 
 	if result.Err != nil {
-		c.JSON(500, gin.H{"error": "Something went wrong"})
+		if result.Err.Error() == "WHERE conditions required" {
+			// Handle the specific error case
+			c.JSON(404, gin.H{"error": "Post is not present"})
+		} else {
+			// Handle other errors
+			c.JSON(500, gin.H{"error": "Something went wrong"})
+		}
 		return
 	}
 

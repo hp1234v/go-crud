@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "go: build",
+        "type": "shell",
+        "command": "go build -o server main.go",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$go"],
+        "detail": "Generated task for Go build"
+      }
+    ]
+  }
