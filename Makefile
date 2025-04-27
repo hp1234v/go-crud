@@ -9,3 +9,6 @@ test:
 
 clean:
 	rm -rf myapp
+
+docker-compose:
+	docker compose down -v && docker compose up --build

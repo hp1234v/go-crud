@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: todo
+      POSTGRES_DB: postgres
     ports:
       - "5432:5432"
 
@@ -16,13 +16,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: go-todo-app
+    container_name: go-crud-app
     ports:
       - "3000:3000"
     environment:
       ENVIRONMENT: production
       PORT: 3000
       GIN_MODE: release
-      DB_URL: host=db user=postgres password=postgres dbname=todo port=5432 sslmode=disable
+      DB_URL: host=db user=postgres password=postgres dbname=postgres port=5432 sslmode=disable
     depends_on:
       - db

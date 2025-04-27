@@ -14,15 +14,19 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o server .
 # Final lightweight image
 FROM alpine:latest
 
-RUN apk --no-cache add ca-certificates tzdata
-
-RUN adduser -D -u 10001 appuser
-USER appuser
+RUN apk --no-cache add ca-certificates tzdata postgresql-client
 
 WORKDIR /app
 
 COPY --from=build /app/server .
+COPY wait-for-db.sh .
+
+# Important: chmod before switching user
+RUN chmod +x wait-for-db.sh
+
+RUN adduser -D -u 10001 appuser
+USER appuser
 
 EXPOSE 3000
 
-ENTRYPOINT ["./server"]
+ENTRYPOINT ["./wait-for-db.sh", "./server"]
